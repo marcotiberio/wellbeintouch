@@ -2,7 +2,7 @@
   "name": "wellbeintouch",
   "version": "0.1.0",
   "private": true,
-  "description": "We'll Be In Touch — Ghosting Index 👻",
+  "description": "We'll Be In Touch — The ghosting index 👻",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",

@@ -88,13 +88,13 @@ export default defineType({
       name: 'indexSubtitle',
       title: 'Index Section Subtitle',
       type: 'string',
-      description: 'e.g. "Ghosting index"',
+      description: 'e.g. "The ghosting index 👻"',
     }),
     defineField({
       name: 'indexTitle',
       title: 'Index Section Title',
       type: 'string',
-      description: 'e.g. "Who ghosts, and when"',
+      description: 'e.g. "Who ghosts, and when (mockup data)"',
     }),
 
     // ── Bottom CTA ──
