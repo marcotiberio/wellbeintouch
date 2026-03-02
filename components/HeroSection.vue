@@ -18,7 +18,7 @@ const { open } = useReportModal()
       <div class="hero-eyebrow fade-in fade-in-1">{{ content?.heroEyebrow }}</div>
       <h1 class="fade-in fade-in-2">
         They said<br />
-        <em>we'll be<br />in touch (lol)</em>
+        <em>we'll be in touch (lol)</em>
       </h1>
       <div class="hero-body fade-in fade-in-3">
         <div>
