@@ -24,8 +24,6 @@ nav {
   background: var(--paper);
 }
 .nav-logo {
-  font-family: var(--serif);
-  font-style: italic;
   font-size: 1.05rem;
   color: var(--ink);
   letter-spacing: -0.01em;

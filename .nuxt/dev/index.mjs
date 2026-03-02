@@ -2749,7 +2749,7 @@ function defineRenderHandler(render) {
     const ctx = { event, render, response: void 0 };
     await nitroApp.hooks.callHook("render:before", ctx);
     if (!ctx.response) {
-      if (event.path === `${runtimeConfig.app.baseURL}favicon.png`) {
+      if (event.path === `${runtimeConfig.app.baseURL}favicon.ico`) {
         setResponseHeader(event, "Content-Type", "image/x-icon");
         return send(
           event,
