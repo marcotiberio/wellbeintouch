@@ -9,9 +9,6 @@ const { open } = useReportModal()
   <nav class="fade-in">
     <div class="nav-logo">We'll Be In Touch – The Ghosting Index 👻</div>
     <div class="nav-right">
-      <div class="nav-meta">
-        <span v-for="(s, i) in stats" :key="i">{{ s }}</span>
-      </div>
       <button class="nav-cta" @click="open">File a report</button>
     </div>
   </nav>
