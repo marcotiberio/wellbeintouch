@@ -10,12 +10,6 @@ export default defineType({
   fields: [
     // ── Hero ──
     defineField({
-      name: 'heroEyebrow',
-      title: 'Hero Eyebrow',
-      type: 'string',
-      description: 'Small label above the headline, e.g. "Hiring Process Transparency Index"',
-    }),
-    defineField({
       name: 'heroHeadline',
       title: 'Hero Headline',
       type: 'text',

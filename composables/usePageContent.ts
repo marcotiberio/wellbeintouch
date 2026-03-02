@@ -1,7 +1,6 @@
 import { createClient } from '@sanity/client'
 
 const FALLBACK = {
-  heroEyebrow: 'Hiring Process Transparency Index',
   heroHeadline: 'They said\nwe\'ll be\nin touch (lol)',
   heroSubtext: 'A public record of companies that ghost candidates. Scored on how long they take, how much of your time they cost, and whether they ever reply.',
   heroCtaLabel: 'File a report',
@@ -39,7 +38,6 @@ const FALLBACK = {
 }
 
 const QUERY = `*[_type == "homePage"][0]{
-  heroEyebrow,
   heroHeadline,
   heroSubtext,
   heroCtaLabel,
@@ -89,7 +87,6 @@ export function usePageContent() {
     if (!s) return FALLBACK
 
     return {
-      heroEyebrow: s.heroEyebrow || FALLBACK.heroEyebrow,
       heroHeadline: s.heroHeadline || FALLBACK.heroHeadline,
       heroSubtext: s.heroSubtext || FALLBACK.heroSubtext,
       heroCtaLabel: s.heroCtaLabel || FALLBACK.heroCtaLabel,
