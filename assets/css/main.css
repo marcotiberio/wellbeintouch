@@ -1,0 +1,199 @@
+/* ── WBIT Design Tokens ── */
+:root {
+  --bg:       #f7f5f0;
+  --paper:    #fdfcf9;
+  --ink:      #1c1c18;
+  --muted:    #7a7870;
+  --faint:    #e8e5dc;
+  --green:    #2a5c45;
+  --green-lt: rgba(42, 92, 69, 0.08);
+  --red:      #b03a2e;
+  --amber:    #8a6020;
+  --serif:    'Lora', Georgia, serif;
+  --sans:     'DM Sans', sans-serif;
+  --mono:     'DM Mono', monospace;
+  --radius:   2px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+body.modal-open { overflow: hidden; }
+
+/* ── Page Load Fade ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeUp 0.7s ease both; }
+.fade-in-1 { animation-delay: 0.05s; }
+.fade-in-2 { animation-delay: 0.15s; }
+.fade-in-3 { animation-delay: 0.25s; }
+.fade-in-4 { animation-delay: 0.38s; }
+
+/* ── Shared Component Styles ── */
+
+/* Pill badges (Good / Fair / Poor) */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+}
+.pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.pill.good { color: var(--green); }
+.pill.good .pip { background: var(--green); }
+.pill.warn { color: var(--amber); }
+.pill.warn .pip { background: var(--amber); }
+.pill.bad  { color: var(--red); }
+.pill.bad  .pip { background: var(--red); }
+
+/* Mono label — reused across many components */
+.mono-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* Score number */
+.score-num {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: right;
+  line-height: 1;
+}
+.score-num.good { color: var(--green); }
+.score-num.warn { color: var(--amber); }
+.score-num.bad  { color: var(--red); }
+
+/* ── Button Styles ── */
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background 0.15s, transform 0.08s;
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover { background: #1e4433; }
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-secondary {
+  background: none;
+  border: 1px solid var(--faint);
+  padding: 10px 22px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: var(--muted);
+  border-radius: var(--radius);
+  margin-right: 8px;
+  transition: border-color 0.12s, color 0.12s;
+}
+.btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+/* ── Form Styles ── */
+input[type="text"], select, textarea {
+  background: var(--bg);
+  border: 1px solid var(--faint);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--ink);
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(42,92,69,0.08);
+  background: var(--paper);
+}
+input::placeholder, textarea::placeholder { color: rgba(122,120,112,0.45); }
+textarea { resize: vertical; min-height: 82px; font-size: 0.87rem; line-height: 1.65; }
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a7870' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+/* Toggle row (radio pills) */
+.toggle-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.toggle-row input[type="radio"] { display: none; }
+.toggle-row label.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  background: var(--bg);
+  border: 1px solid var(--faint);
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.12s;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+.toggle-row label.toggle-label:hover { border-color: var(--green); color: var(--green); background: var(--green-lt); }
+.toggle-row label.toggle-label.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+/* Field error states */
+.field.error input, .field.error select { border-color: var(--red); box-shadow: 0 0 0 3px rgba(176,58,46,0.07); }
+.field.error > label { color: var(--red); }
+.field.error .toggle-row { outline: 2px solid rgba(176,58,46,0.2); outline-offset: 4px; border-radius: 8px; }
+
+/* Form label */
+.form-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.form-label .req { color: var(--red); margin-left: 2px; }
+.form-label .opt { opacity: 0.55; font-size: 0.56rem; margin-left: 4px; }
+
+/* ── Modal Animation ── */
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
