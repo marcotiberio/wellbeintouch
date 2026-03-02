@@ -68,13 +68,6 @@ const { open } = useReportModal()
   align-items: center;
   gap: 12px;
 }
-.hero-eyebrow::before {
-  content: '';
-  width: 24px; height: 1px;
-  background: var(--green);
-  opacity: 0.5;
-  flex-shrink: 0;
-}
 h1 {
   font-family: var(--serif);
   font-size: clamp(3rem, 6.5vw, 5.8rem);
