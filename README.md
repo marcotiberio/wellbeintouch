@@ -1,6 +1,6 @@
 # We'll Be In Touch
 
-**wellbeintouch.fyi** — Hiring Transparency Index
+**wellbeintouch.fyi** — Ghosting Index 👻
 
 A public index scoring companies on how they treat candidates during hiring, with a focus on ghosting.
 

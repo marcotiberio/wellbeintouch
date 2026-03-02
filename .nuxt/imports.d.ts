@@ -30,7 +30,7 @@ export { requestIdleCallback, cancelIdleCallback } from '#app/compat/idle-callba
 export { setInterval } from '#app/compat/interval';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
-export { LABELS, string, warn, bad, scoreClass, useCompanyData, Company, SortKey } from '../composables/useCompanyData';
+export { ROLE_TYPE_LABELS, string, LABELS, warn, bad, scoreClass, useCompanyData, RoleType, Company, SortKey } from '../composables/useCompanyData';
 export { usePageContent } from '../composables/usePageContent';
 export { useReportModal } from '../composables/useReportModal';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

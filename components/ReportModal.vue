@@ -7,6 +7,7 @@ const refCode = ref('')
 // Form state
 const company = ref('')
 const role = ref('')
+const roleType = ref('')
 const stage = ref('')
 const duration = ref('')
 const notes = ref('')
@@ -15,9 +16,16 @@ const notes = ref('')
 const errors = reactive({
   company: false,
   role: false,
+  roleType: false,
   stage: false,
   duration: false,
 })
+
+const roleTypeOptions = [
+  { value: 'employee', label: 'Employee' },
+  { value: 'freelancer', label: 'Freelancer' },
+  { value: 'contractor', label: 'Contractor' },
+]
 
 const stageOptions = [
   { value: 'application', label: 'After application' },
@@ -39,9 +47,10 @@ const durationOptions = [
 function validate(): boolean {
   errors.company = !company.value.trim()
   errors.role = !role.value.trim()
+  errors.roleType = !roleType.value
   errors.stage = !stage.value
   errors.duration = !duration.value
-  return !errors.company && !errors.role && !errors.stage && !errors.duration
+  return !errors.company && !errors.role && !errors.roleType && !errors.stage && !errors.duration
 }
 
 function submit() {
@@ -53,11 +62,13 @@ function submit() {
 function resetForm() {
   company.value = ''
   role.value = ''
+  roleType.value = ''
   stage.value = ''
   duration.value = ''
   notes.value = ''
   errors.company = false
   errors.role = false
+  errors.roleType = false
   errors.stage = false
   errors.duration = false
   showSuccess.value = false
@@ -123,6 +134,23 @@ onMounted(() => {
                   placeholder="e.g. Senior Visual Designer"
                   @input="errors.role = false"
                 />
+              </div>
+            </div>
+
+            <div class="form-row full" style="margin-bottom: 18px;">
+              <div class="field" :class="{ error: errors.roleType }">
+                <label class="form-label">Role type <span class="req">*</span></label>
+                <div class="toggle-row">
+                  <label
+                    v-for="opt in roleTypeOptions"
+                    :key="opt.value"
+                    class="toggle-label"
+                    :class="{ active: roleType === opt.value }"
+                    @click="roleType = opt.value; errors.roleType = false"
+                  >
+                    {{ opt.label }}
+                  </label>
+                </div>
               </div>
             </div>
 

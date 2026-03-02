@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LABELS, scoreClass, type SortKey } from '~/composables/useCompanyData'
+import { LABELS, ROLE_TYPE_LABELS, scoreClass, type SortKey } from '~/composables/useCompanyData'
 
 defineProps<{
   subtitle?: string
@@ -42,6 +42,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
     <div class="table-wrap">
       <div class="table-head">
         <div class="th">Company</div>
+        <div class="th">Role type</div>
         <div class="th">Ghosted at</div>
         <div class="th">Process length</div>
         <div class="th">Ghosting</div>
@@ -53,6 +54,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
           <div class="co-name">{{ company.name }}</div>
           <div class="co-ind">{{ company.industry }}</div>
         </div>
+        <div class="cell cell-role-type">{{ ROLE_TYPE_LABELS[company.roleType] }}</div>
         <div class="cell cell-stage">{{ company.stage }}</div>
         <div class="cell cell-duration">{{ company.duration }}</div>
         <div class="cell">
@@ -134,7 +136,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 }
 .table-head {
   display: grid;
-  grid-template-columns: 2.2fr 1.3fr 1fr 0.8fr 0.9fr;
+  grid-template-columns: 2fr 0.9fr 1.1fr 0.9fr 0.7fr 0.8fr;
   padding: 10px 20px;
   background: var(--bg);
   border-bottom: 1px solid var(--faint);
@@ -150,7 +152,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 
 .co-row {
   display: grid;
-  grid-template-columns: 2.2fr 1.3fr 1fr 0.8fr 0.9fr;
+  grid-template-columns: 2fr 0.9fr 1.1fr 0.9fr 0.7fr 0.8fr;
   padding: 14px 20px;
   border-bottom: 1px solid var(--faint);
   align-items: center;
@@ -179,6 +181,11 @@ const sortOptions: { key: SortKey; label: string }[] = [
   font-family: var(--mono);
 }
 .cell.right { text-align: right; }
+.cell-role-type {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
 .cell-stage {
   font-family: var(--sans);
   font-size: 0.82rem;
@@ -232,7 +239,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 @media (max-width: 768px) {
   .table-head { display: none; }
   .co-row { grid-template-columns: 1fr 1fr; }
-  .cell-stage, .cell-duration { display: none; }
+  .cell-role-type, .cell-stage, .cell-duration { display: none; }
   .index-head { flex-direction: column; align-items: flex-start; }
 }
 </style>

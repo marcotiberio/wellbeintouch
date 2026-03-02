@@ -2,7 +2,7 @@
   "name": "wellbeintouch",
   "version": "0.1.0",
   "private": true,
-  "description": "We'll Be In Touch — Hiring Transparency Index",
+  "description": "We'll Be In Touch — Ghosting Index 👻",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",

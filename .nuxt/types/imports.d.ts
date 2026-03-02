@@ -2,6 +2,7 @@
 export {}
 declare global {
   const LABELS: typeof import('../../composables/useCompanyData').LABELS
+  const ROLE_TYPE_LABELS: typeof import('../../composables/useCompanyData').ROLE_TYPE_LABELS
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app/composables/router').abortNavigation
   const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app/composables/router').addRouteMiddleware
   const bad: typeof import('../../composables/useCompanyData').bad
@@ -190,7 +191,7 @@ declare global {
   export type { Component, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from '../../node_modules/vue'
   import('../../node_modules/vue')
   // @ts-ignore
-  export type { Company, SortKey } from '../../composables/useCompanyData'
+  export type { RoleType, Company, SortKey } from '../../composables/useCompanyData'
   import('../../composables/useCompanyData')
 }
 // for vue template auto import
@@ -198,6 +199,7 @@ import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
     readonly LABELS: UnwrapRef<typeof import('../../composables/useCompanyData')['LABELS']>
+    readonly ROLE_TYPE_LABELS: UnwrapRef<typeof import('../../composables/useCompanyData')['ROLE_TYPE_LABELS']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>
     readonly bad: UnwrapRef<typeof import('../../composables/useCompanyData')['bad']>
