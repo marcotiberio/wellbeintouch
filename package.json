@@ -2,7 +2,7 @@
   "name": "wellbeintouch",
   "version": "0.1.0",
   "private": true,
-  "description": "We'll Be In Touch — The ghosting index 👻",
+  "description": "We'll Be In Touch — Hiring Transparency Index",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
@@ -14,6 +14,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@sanity/client": "^6.29.1",
+    "@supabase/supabase-js": "^2.98.0",
     "nuxt": "^4.3.1"
   }
 }

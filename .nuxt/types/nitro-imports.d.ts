@@ -125,6 +125,7 @@ declare global {
   const useRuntimeConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
   const useSession: typeof import('../../node_modules/h3').useSession
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
+  const useSupabaseServer: typeof import('../../server/utils/supabase').useSupabaseServer
   const writeEarlyHints: typeof import('../../node_modules/h3').writeEarlyHints
 }
 // for type re-export
@@ -147,3 +148,4 @@ export { defineTask, runTask } from 'nitropack/runtime/internal/task';
 export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
 export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from '/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/@nuxt/nitro-server/dist/runtime/utils/paths';
 export { defineAppConfig } from '/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';
+export { useSupabaseServer } from '/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/server/utils/supabase';

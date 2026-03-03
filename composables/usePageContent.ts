@@ -1,8 +1,9 @@
 import { createClient } from '@sanity/client'
 
 const FALLBACK = {
+  heroEyebrow: 'Hiring Process Transparency Index',
   heroHeadline: 'They said\nwe\'ll be\nin touch (lol)',
-  heroSubtext: 'A public record of companies that ghost candidates. Scored on how long they take, how much of your time they cost, and whether they ever reply.',
+  heroSubtext: 'A public record of hiring processes — scored on what actually matters. How long it takes. How much of your time it costs. Whether they ever reply.',
   heroCtaLabel: 'File a report',
   heroCtaNote: 'Anonymous.\nNo account. 2 minutes.',
   stats: [
@@ -21,7 +22,7 @@ const FALLBACK = {
     text: 'Your time has value. The average hiring process runs 44 days — longer for senior roles. 61% of candidates are ghosted before it\'s over. This platform scores companies on four parameters so you can decide whether applying is worth it before you find out the hard way.',
   },
   indexSubtitle: 'Ghosting index',
-  indexTitle: 'Who ghosts, and when (mockup data)',
+  indexTitle: 'Who ghosts, and when',
   bottomCtaText: 'Every report you file contributes to a company\'s permanent public score. The more data, the clearer the picture becomes — for everyone who comes after you. It takes two minutes and requires no account.',
   bottomCtaButton: 'File a report',
   supportTitle: 'If the silence is getting to you',
@@ -32,12 +33,13 @@ const FALLBACK = {
     { name: 'Find a therapist', description: 'Psychology Today directory · Global', url: 'https://www.psychologytoday.com/intl/counsellors' },
   ],
   supportCrisisText: 'In crisis? Call 113 (NL) or find your local helpline at findahelpline.com',
-  footerLeft: 'wellbeintouch.fyi — The ghosting index 👻',
+  footerLeft: 'wellbeintouch.fyi — Hiring Transparency Index',
   footerRight: 'No recruiters were harmed. Several were named.',
   navStats: ['247 reports', '83 companies', 'Status: Open'],
 }
 
 const QUERY = `*[_type == "homePage"][0]{
+  heroEyebrow,
   heroHeadline,
   heroSubtext,
   heroCtaLabel,
@@ -87,6 +89,7 @@ export function usePageContent() {
     if (!s) return FALLBACK
 
     return {
+      heroEyebrow: s.heroEyebrow || FALLBACK.heroEyebrow,
       heroHeadline: s.heroHeadline || FALLBACK.heroHeadline,
       heroSubtext: s.heroSubtext || FALLBACK.heroSubtext,
       heroCtaLabel: s.heroCtaLabel || FALLBACK.heroCtaLabel,

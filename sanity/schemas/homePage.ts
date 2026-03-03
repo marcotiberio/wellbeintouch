@@ -10,6 +10,12 @@ export default defineType({
   fields: [
     // ── Hero ──
     defineField({
+      name: 'heroEyebrow',
+      title: 'Hero Eyebrow',
+      type: 'string',
+      description: 'Small label above the headline, e.g. "Hiring Process Transparency Index"',
+    }),
+    defineField({
       name: 'heroHeadline',
       title: 'Hero Headline',
       type: 'text',
@@ -82,13 +88,13 @@ export default defineType({
       name: 'indexSubtitle',
       title: 'Index Section Subtitle',
       type: 'string',
-      description: 'e.g. "The ghosting index 👻"',
+      description: 'e.g. "Ghosting index"',
     }),
     defineField({
       name: 'indexTitle',
       title: 'Index Section Title',
       type: 'string',
-      description: 'e.g. "Who ghosts, and when (mockup data)"',
+      description: 'e.g. "Who ghosts, and when"',
     }),
 
     // ── Bottom CTA ──

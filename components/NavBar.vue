@@ -7,8 +7,11 @@ const { open } = useReportModal()
 
 <template>
   <nav class="fade-in">
-    <div class="nav-logo">We'll Be In Touch – The Ghosting Index 👻</div>
+    <div class="nav-logo">We'll Be In Touch</div>
     <div class="nav-right">
+      <div class="nav-meta">
+        <span v-for="(s, i) in stats" :key="i">{{ s }}</span>
+      </div>
       <button class="nav-cta" @click="open">File a report</button>
     </div>
   </nav>
@@ -24,6 +27,8 @@ nav {
   background: var(--paper);
 }
 .nav-logo {
+  font-family: var(--serif);
+  font-style: italic;
   font-size: 1.05rem;
   color: var(--ink);
   letter-spacing: -0.01em;

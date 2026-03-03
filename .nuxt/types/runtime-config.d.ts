@@ -10,6 +10,10 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       cdnURL: string,
    },
 
+   supabase: {
+      serviceRoleKey: string,
+   },
+
    nitro: {
       envPrefix: string,
    },
@@ -23,6 +27,12 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       apiVersion: string,
 
       useCdn: boolean,
+   },
+
+   supabase: {
+      url: string,
+
+      anonKey: string,
    },
   }
 declare module '@nuxt/schema' {
