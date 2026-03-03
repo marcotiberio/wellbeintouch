@@ -4,21 +4,27 @@ const { open } = useReportModal()
 
 <template>
   <nav class="fade-in">
-    <div class="nav-logo uppercase">The Ghosting Index 👻</div>
-    <div class="nav-right">
-      <button class="nav-cta" @click="open">File a report</button>
+    <div class="nav-inner">
+      <div class="nav-logo uppercase">The Ghosting Index 👻</div>
+      <div class="nav-right">
+        <button class="nav-cta" @click="open">File a report</button>
+      </div>
     </div>
   </nav>
 </template>
 
 <style scoped>
 nav {
+  border-bottom: 1px solid var(--faint);
+  background: var(--paper);
+}
+.nav-inner {
+  max-width: 1680px;
+  margin: 0 auto;
   padding: 20px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--faint);
-  background: var(--paper);
 }
 .nav-logo {
   font-size: 1.05rem;

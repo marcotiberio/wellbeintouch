@@ -33,6 +33,7 @@ const { open } = useReportModal()
 <style scoped>
 .hero {
   background: var(--paper);
+  margin: 0 auto;
   padding: 96px 48px 88px;
   border-bottom: 1px solid var(--faint);
   overflow: hidden;
@@ -47,7 +48,11 @@ const { open } = useReportModal()
   top: -200px; right: -100px;
   pointer-events: none;
 }
-.hero-inner { max-width: 1680px; margin: 0; }
+.hero-inner { 
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 96px 48px 88px;
+}
 h1 {
   font-family: var(--serif);
   font-size: clamp(3rem, 6.5vw, 5.8rem);

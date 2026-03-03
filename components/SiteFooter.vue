@@ -6,24 +6,31 @@ defineProps<{
 </script>
 
 <template>
-  <footer>
-    <span>{{ left }}</span>
-    <em>{{ right }}</em>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>{{ left }}</span>
+      <em>{{ right }}</em>
+    </div>
   </footer>
 </template>
 
 <style scoped>
-footer {
-  border-top: 1px solid var(--faint);
+.site-footer {
+  background: var(--paper);
   padding: 24px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-top: 1px solid var(--faint);
   font-family: var(--mono);
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
+}
+.site-footer-inner {
+  max-width: 1680px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 footer em {
   font-style: italic;
