@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LABELS, ROLE_TYPE_LABELS, scoreClass, type SortKey } from '~/composables/useCompanyData'
+import { LABELS, scoreClass, type SortKey } from '~/composables/useCompanyData'
 
 defineProps<{
   subtitle?: string
@@ -10,8 +10,6 @@ const { visible, remaining, total, visibleCount, sortKey, setSort, loadMore } = 
 
 const sortOptions: { key: SortKey; label: string }[] = [
   { key: 'score', label: 'Score' },
-  { key: 'ghosting', label: 'Ghosting' },
-  { key: 'reports', label: 'Reports' },
   { key: 'name', label: 'Name' },
 ]
 </script>
@@ -22,7 +20,6 @@ const sortOptions: { key: SortKey; label: string }[] = [
     <div class="index-head">
       <div class="index-title-wrap">
         <span class="index-subtitle">{{ subtitle }}</span>
-        <h2 class="index-title">{{ title }}</h2>
       </div>
       <div class="sort-row">
         <span>Sort by</span>
@@ -42,29 +39,25 @@ const sortOptions: { key: SortKey; label: string }[] = [
     <div class="table-wrap">
       <div class="table-head">
         <div class="th">Company</div>
-        <div class="th">Role type</div>
         <div class="th">Ghosted at</div>
-        <div class="th">Process length</div>
-        <div class="th">Ghosting</div>
+        <div class="th">Duration</div>
+        <div class="th">Severity</div>
         <div class="th right">Score</div>
       </div>
 
       <div v-for="company in visible" :key="company.name" class="co-row">
         <div>
           <div class="co-name">{{ company.name }}</div>
-          <div class="co-ind">{{ company.industry }}</div>
         </div>
-        <div class="cell cell-role-type">{{ ROLE_TYPE_LABELS[company.roleType] }}</div>
         <div class="cell cell-stage">{{ company.stage }}</div>
         <div class="cell cell-duration">{{ company.duration }}</div>
         <div class="cell">
-          <span class="pill" :class="company.ghosting">
-            <span class="pip" />{{ LABELS[company.ghosting] }}
+          <span class="pill" :class="scoreClass(company.score)">
+            <span class="pip" />{{ LABELS[scoreClass(company.score)] }}
           </span>
         </div>
         <div class="cell right">
           <div class="score-num" :class="scoreClass(company.score)">{{ company.score }}</div>
-          <div class="score-reports">{{ company.reports }} report{{ company.reports !== 1 ? 's' : '' }}</div>
         </div>
       </div>
     </div>
@@ -88,13 +81,6 @@ const sortOptions: { key: SortKey; label: string }[] = [
   border-bottom: 1px solid var(--faint);
 }
 .index-title-wrap { display: flex; align-items: baseline; gap: 14px; }
-.index-title {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ink);
-}
 .index-subtitle {
   font-family: var(--mono);
   font-size: 0.6rem;
@@ -136,7 +122,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 }
 .table-head {
   display: grid;
-  grid-template-columns: 2fr 0.9fr 1.1fr 0.9fr 0.7fr 0.8fr;
+  grid-template-columns: 2fr 1.2fr 1fr 0.8fr 0.8fr;
   padding: 10px 20px;
   background: var(--bg);
   border-bottom: 1px solid var(--faint);
@@ -152,7 +138,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 
 .co-row {
   display: grid;
-  grid-template-columns: 2fr 0.9fr 1.1fr 0.9fr 0.7fr 0.8fr;
+  grid-template-columns: 2fr 1.2fr 1fr 0.8fr 0.8fr;
   padding: 14px 20px;
   border-bottom: 1px solid var(--faint);
   align-items: center;
@@ -181,11 +167,6 @@ const sortOptions: { key: SortKey; label: string }[] = [
   font-family: var(--mono);
 }
 .cell.right { text-align: right; }
-.cell-role-type {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  color: var(--muted);
-}
 .cell-stage {
   font-family: var(--sans);
   font-size: 0.82rem;
@@ -239,7 +220,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 @media (max-width: 768px) {
   .table-head { display: none; }
   .co-row { grid-template-columns: 1fr 1fr; }
-  .cell-role-type, .cell-stage, .cell-duration { display: none; }
+  .cell-stage, .cell-duration { display: none; }
   .index-head { flex-direction: column; align-items: flex-start; }
 }
 </style>

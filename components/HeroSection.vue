@@ -5,7 +5,6 @@ defineProps<{
     heroSubtext?: string
     heroCtaLabel?: string
     heroCtaNote?: string
-    stats?: { label: string; value: string; accent: boolean }[]
   }
 }>()
 const { open } = useReportModal()
@@ -24,12 +23,6 @@ const { open } = useReportModal()
           <div class="hero-cta">
             <button class="btn-primary" @click="open">{{ content?.heroCtaLabel }}</button>
             <span class="btn-note" v-html="content?.heroCtaNote?.replace(/\\n/g, '<br />')" />
-          </div>
-        </div>
-        <div class="hero-stats">
-          <div v-for="(stat, i) in content?.stats" :key="i" class="stat-cell">
-            <div class="stat-label">{{ stat.label }}</div>
-            <div class="stat-value" :class="{ accent: stat.accent }">{{ stat.value }}</div>
           </div>
         </div>
       </div>
@@ -54,7 +47,7 @@ const { open } = useReportModal()
   top: -200px; right: -100px;
   pointer-events: none;
 }
-.hero-inner { max-width: 1440px; margin: 0 auto; }
+.hero-inner { max-width: 1680px; margin: 0; }
 h1 {
   font-family: var(--serif);
   font-size: clamp(3rem, 6.5vw, 5.8rem);
@@ -83,34 +76,6 @@ h1 em {
   max-width: 420px;
 }
 .hero-text strong { color: var(--ink); font-weight: 500; }
-.hero-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--faint);
-  border: 1px solid var(--faint);
-  align-self: end;
-}
-.stat-cell {
-  background: var(--paper);
-  padding: 20px 22px;
-}
-.stat-label {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-.stat-value {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: var(--ink);
-  line-height: 1;
-}
-.stat-value.accent { color: var(--green); }
 .hero-cta {
   margin-top: 36px;
   display: flex;
@@ -129,7 +94,6 @@ h1 em {
 @media (max-width: 768px) {
   .hero { padding: 60px 20px 52px; }
   .hero-body { grid-template-columns: 1fr; gap: 36px; }
-  .hero-stats { grid-template-columns: 1fr 1fr; }
   h1 { font-size: 3rem; }
 }
 </style>

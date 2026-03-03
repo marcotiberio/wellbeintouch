@@ -3,7 +3,7 @@ import { createClient } from '@sanity/client'
 const FALLBACK = {
   heroEyebrow: 'Hiring Process Transparency Index',
   heroHeadline: 'They said\nwe\'ll be\nin touch (lol)',
-  heroSubtext: 'A public record of hiring processes — scored on what actually matters. How long it takes. How much of your time it costs. Whether they ever reply.',
+  heroSubtext: 'Companies ghost candidates every day. We track it, score it, and make it public.',
   heroCtaLabel: 'File a report',
   heroCtaNote: 'Anonymous.\nNo account. 2 minutes.',
   stats: [
@@ -33,7 +33,7 @@ const FALLBACK = {
     { name: 'Find a therapist', description: 'Psychology Today directory · Global', url: 'https://www.psychologytoday.com/intl/counsellors' },
   ],
   supportCrisisText: 'In crisis? Call 113 (NL) or find your local helpline at findahelpline.com',
-  footerLeft: 'wellbeintouch.fyi — The Ghosting Index 👻',
+  footerLeft: 'The Ghosting Index 👻',
   footerRight: 'No recruiters were harmed. Several were named.',
   navStats: ['247 reports', '83 companies', 'Status: Open'],
 }

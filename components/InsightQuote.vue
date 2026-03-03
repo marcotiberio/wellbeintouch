@@ -21,7 +21,7 @@ defineProps<{
 
 <style scoped>
 .insight {
-  margin: 64px 0 52px;
+  margin-bottom: 64px;
   align-items: start;
 }
 .insight-mark {

@@ -10,11 +10,9 @@ const { content } = usePageContent()
     <main>
       <InsightQuote :left="content.insightLeft" :right="content.insightRight" />
       <CompanyIndex :subtitle="content.indexSubtitle" :title="content.indexTitle" />
-      <BottomCta :text="content.bottomCtaText" :button-label="content.bottomCtaButton" />
       <MentalHealthSupport
         :title="content.supportTitle"
         :text="content.supportText"
-        :links="content.supportLinks"
         :crisis-text="content.supportCrisisText"
       />
     </main>
@@ -26,9 +24,9 @@ const { content } = usePageContent()
 
 <style scoped>
 main {
-  max-width: 1440px;
+  max-width: 1680px;
   margin: 0 auto;
-  padding: 0 0 96px;
+  padding: 96px 48px 88px;
 }
 
 @media (max-width: 768px) {
