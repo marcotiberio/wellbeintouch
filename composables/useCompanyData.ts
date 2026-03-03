@@ -68,22 +68,21 @@ export function useCompanyData() {
   const sortKey = ref<SortKey>('score')
   const visibleCount = ref(PAGE_SIZE)
 
-  const config = useRuntimeConfig()
-  const supabaseUrl = config.public.supabase?.url
-  const supabaseKey = config.public.supabase?.anonKey
-
   // Reactive data source — starts with seed data, replaced by Supabase data if available
-  const companies = ref<Company[]>(SEED_COMPANIES)
+  const companies = useState<Company[]>('wbit-companies', () => SEED_COMPANIES)
 
-  // Fetch version counter (incremented to trigger refetch)
-  const fetchVersion = useState<number>('company-data-version', () => 0)
+  // Check if Supabase is configured
+  const config = useRuntimeConfig()
+  const supabaseUrl = config.public.supabase?.url as string | undefined
+  const supabaseKey = config.public.supabase?.anonKey as string | undefined
+  const hasSupabase = Boolean(supabaseUrl && supabaseKey)
 
   // Fetch live data from Supabase
-  const fetchLive = async () => {
-    if (!supabaseUrl || !supabaseKey) return
+  const fetchLive = async (): Promise<Company[]> => {
+    if (!hasSupabase) return SEED_COMPANIES
 
     try {
-      const client = createClient(supabaseUrl, supabaseKey)
+      const client = createClient(supabaseUrl!, supabaseKey!)
 
       // Fetch all reports and company metadata in parallel
       const [reportsRes, companiesRes] = await Promise.all([
@@ -106,21 +105,22 @@ export function useCompanyData() {
       }
 
       if (reports.length > 0) {
-        companies.value = buildCompanies(reports, industryLookup)
+        return buildCompanies(reports, industryLookup)
       }
       // If no reports yet, keep seed data as placeholder
+      return SEED_COMPANIES
     } catch (e) {
       console.warn('[WBIT] Supabase fetch failed, using seed data:', e)
-      // Keep seed data — already set as default
+      return SEED_COMPANIES
     }
   }
 
-  // Use useAsyncData for SSR-compatible fetching, keyed on version for refetch
-  useAsyncData(
-    `company-data-${fetchVersion.value}`,
-    fetchLive,
-    { watch: [fetchVersion] }
-  )
+  // SSR-compatible fetch — returns data, updates state
+  const { refresh: refetchData } = useAsyncData('company-data', async () => {
+    const data = await fetchLive()
+    companies.value = data
+    return data
+  })
 
   const sorted = computed(() => {
     const list = [...companies.value]
@@ -156,7 +156,7 @@ export function useCompanyData() {
 
   /** Call after a new report is submitted to refresh the data */
   function refresh() {
-    fetchVersion.value++
+    refetchData()
   }
 
   return {

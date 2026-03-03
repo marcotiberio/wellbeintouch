@@ -850,6 +850,7 @@ function getRequestURL(event, opts = {}) {
 }
 
 const RawBodySymbol = Symbol.for("h3RawBody");
+const ParsedBodySymbol = Symbol.for("h3ParsedBody");
 const PayloadMethods$1 = ["PATCH", "POST", "PUT", "DELETE"];
 function readRawBody(event, encoding = "utf8") {
   assertMethod(event, PayloadMethods$1);
@@ -919,6 +920,26 @@ function readRawBody(event, encoding = "utf8") {
   const result = encoding ? promise.then((buff) => buff.toString(encoding)) : promise;
   return result;
 }
+async function readBody(event, options = {}) {
+  const request = event.node.req;
+  if (hasProp(request, ParsedBodySymbol)) {
+    return request[ParsedBodySymbol];
+  }
+  const contentType = request.headers["content-type"] || "";
+  const body = await readRawBody(event);
+  let parsed;
+  if (contentType === "application/json") {
+    parsed = _parseJSON(body, options.strict ?? true);
+  } else if (contentType.startsWith("application/x-www-form-urlencoded")) {
+    parsed = _parseURLEncodedBody(body);
+  } else if (contentType.startsWith("text/")) {
+    parsed = body;
+  } else {
+    parsed = _parseJSON(body, options.strict ?? false);
+  }
+  request[ParsedBodySymbol] = parsed;
+  return parsed;
+}
 function getRequestWebStream(event) {
   if (!PayloadMethods$1.includes(event.method)) {
     return;
@@ -952,6 +973,35 @@ function getRequestWebStream(event) {
       });
     }
   });
+}
+function _parseJSON(body = "", strict) {
+  if (!body) {
+    return void 0;
+  }
+  try {
+    return destr(body, { strict });
+  } catch {
+    throw createError$1({
+      statusCode: 400,
+      statusMessage: "Bad Request",
+      message: "Invalid JSON body"
+    });
+  }
+}
+function _parseURLEncodedBody(body) {
+  const form = new URLSearchParams(body);
+  const parsedForm = /* @__PURE__ */ Object.create(null);
+  for (const [key, value] of form.entries()) {
+    if (hasProp(parsedForm, key)) {
+      if (!Array.isArray(parsedForm[key])) {
+        parsedForm[key] = [parsedForm[key]];
+      }
+      parsedForm[key].push(value);
+    } else {
+      parsedForm[key] = value;
+    }
+  }
+  return parsedForm;
 }
 
 function handleCacheHeaders(event, opts) {
@@ -4017,7 +4067,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "699099ae-f67b-4e2a-8588-0a54bec00c21",
+    "buildId": "d55dfdbb-ceaf-4951-8fc0-c2d1f7a16f77",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4051,7 +4101,14 @@ const _inlineRuntimeConfig = {
       "dataset": "production",
       "apiVersion": "2025-03-01",
       "useCdn": true
+    },
+    "supabase": {
+      "url": "",
+      "anonKey": ""
     }
+  },
+  "supabase": {
+    "serviceRoleKey": ""
   }
 };
 const envOptions = {
@@ -4471,9 +4528,11 @@ const plugins = [
 
 const _SxA8c9 = defineEventHandler(() => {});
 
+const _lazy_ZywRui = () => import('../routes/api/reports.post.mjs');
 const _lazy_xnWpHy = () => import('../routes/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
+  { route: '/api/reports', handler: _lazy_ZywRui, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_xnWpHy, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_xnWpHy, lazy: true, middleware: false, method: undefined }
@@ -4691,5 +4750,5 @@ const listener = function(req, res) {
   return handler(req, res);
 };
 
-export { $fetch as $, getResponseStatus as a, getQuery as b, createError$1 as c, defineRenderHandler as d, destr as e, getRouteRules as f, getResponseStatusText as g, joinURL as h, useNitroApp as i, joinRelativeURL as j, encodePath as k, decodePath as l, hasProtocol as m, isScriptProtocol as n, getContext as o, parseURL as p, createHooks as q, executeAsync as r, sanitizeStatusCode as s, defu as t, useRuntimeConfig as u, parseQuery as v, withQuery as w, withTrailingSlash as x, withoutTrailingSlash as y, listener as z };
+export { $fetch as $, withoutTrailingSlash as A, listener as B, getResponseStatus as a, defineRenderHandler as b, createError$1 as c, defineEventHandler as d, getQuery as e, destr as f, getResponseStatusText as g, getRouteRules as h, joinURL as i, joinRelativeURL as j, useNitroApp as k, encodePath as l, decodePath as m, hasProtocol as n, isScriptProtocol as o, parseURL as p, getContext as q, readBody as r, sanitizeStatusCode as s, createHooks as t, useRuntimeConfig as u, executeAsync as v, withQuery as w, defu as x, parseQuery as y, withTrailingSlash as z };
 //# sourceMappingURL=nitro.mjs.map

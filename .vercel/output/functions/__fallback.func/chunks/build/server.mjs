@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { hasInjectionContext, getCurrentInstance, defineComponent, ref, inject, h, Suspense, Fragment, createApp, provide, shallowReactive, onErrorCaptured, onServerPrefetch, unref, createVNode, resolveDynamicComponent, reactive, effectScope, defineAsyncComponent, mergeProps, getCurrentScope, toRef, shallowRef, isReadonly, useSSRContext, isRef, isShallow, isReactive, toRaw } from 'vue';
-import { p as parseURL, k as encodePath, l as decodePath, c as createError$1, m as hasProtocol, n as isScriptProtocol, h as joinURL, w as withQuery, s as sanitizeStatusCode, o as getContext, $ as $fetch, q as createHooks, r as executeAsync, t as defu } from '../nitro/nitro.mjs';
+import { p as parseURL, l as encodePath, m as decodePath, c as createError$1, n as hasProtocol, o as isScriptProtocol, i as joinURL, w as withQuery, s as sanitizeStatusCode, q as getContext, $ as $fetch, t as createHooks, v as executeAsync, x as defu } from '../nitro/nitro.mjs';
 import { b as baseURL } from '../routes/renderer.mjs';
 import { RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode } from 'vue/server-renderer';
@@ -406,7 +406,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-BE_eR3rp.mjs')
+    component: () => import('./index-DSWaoleT.mjs')
   }
 ];
 const ROUTE_KEY_PARENTHESES_RE = /(:\w+)\([^)]+\)/g;
