@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         { property: 'og:url', content: 'https://wellbeintouch.fyi' },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       ],
     },
   },
