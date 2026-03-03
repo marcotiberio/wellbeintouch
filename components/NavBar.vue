@@ -1,17 +1,11 @@
 <script setup lang="ts">
-defineProps<{
-  stats?: string[]
-}>()
 const { open } = useReportModal()
 </script>
 
 <template>
   <nav class="fade-in">
-    <div class="nav-logo">We'll Be In Touch</div>
+    <div class="nav-logo">We'll Be In Touch - The Ghosting Index 👻</div>
     <div class="nav-right">
-      <div class="nav-meta">
-        <span v-for="(s, i) in stats" :key="i">{{ s }}</span>
-      </div>
       <button class="nav-cta" @click="open">File a report</button>
     </div>
   </nav>
@@ -38,15 +32,6 @@ nav {
   align-items: center;
   gap: 32px;
 }
-.nav-meta {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  display: flex;
-  gap: 24px;
-}
 .nav-cta {
   background: var(--green);
   color: #fff;
@@ -65,6 +50,5 @@ nav {
 
 @media (max-width: 768px) {
   nav { padding: 16px 20px; }
-  .nav-meta { display: none; }
 }
 </style>

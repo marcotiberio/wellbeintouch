@@ -4,7 +4,7 @@ const { content } = usePageContent()
 
 <template>
   <div>
-    <NavBar :stats="content.navStats" />
+    <NavBar />
     <HeroSection :content="content" />
 
     <main>
