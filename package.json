@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "We'll Be In Touch — Hiring Transparency Index",
+  "description": "We'll Be In Touch — The Ghosting Index 👻",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",

@@ -33,7 +33,7 @@ const FALLBACK = {
     { name: 'Find a therapist', description: 'Psychology Today directory · Global', url: 'https://www.psychologytoday.com/intl/counsellors' },
   ],
   supportCrisisText: 'In crisis? Call 113 (NL) or find your local helpline at findahelpline.com',
-  footerLeft: 'wellbeintouch.fyi — Hiring Transparency Index',
+  footerLeft: 'wellbeintouch.fyi — The Ghosting Index 👻',
   footerRight: 'No recruiters were harmed. Several were named.',
   navStats: ['247 reports', '83 companies', 'Status: Open'],
 }
