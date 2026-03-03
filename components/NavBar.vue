@@ -5,7 +5,7 @@ const { open } = useReportModal()
 <template>
   <nav class="fade-in">
     <div class="nav-inner">
-      <div class="nav-logo uppercase">The Ghosting Index 👻</div>
+      <div class="nav-logo uppercase">👻</div>
       <div class="nav-right">
         <button class="nav-cta" @click="open">File a report</button>
       </div>
