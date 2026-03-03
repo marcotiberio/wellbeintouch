@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="insight fade-in fade-in-4 grid grid-cols-2 gap-16">
+  <div class="insight fade-in fade-in-4 grid md:grid-cols-2 gap-16">
     <div class="insight-body">
       <div class="insight-label">{{ left?.label }}</div>
       <p class="insight-text">{{ left?.text }}</p>
