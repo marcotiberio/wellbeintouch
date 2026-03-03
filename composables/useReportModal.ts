@@ -2,9 +2,8 @@ export function useReportModal() {
   const isOpen = useState('reportModal', () => false)
 
   function open() {
-    isOpen.value = true
     if (import.meta.client) {
-      document.body.classList.add('modal-open')
+      window.open('https://forms.gle/QjPy7BhVgdFCPT5K7', '_blank')
     }
   }
 
