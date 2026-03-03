@@ -1,1 +1,1 @@
-export { default } from "file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"
+export { default } from "file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"

@@ -1,7 +1,7 @@
 {
-  "_hash": "eUS8qlBX0cwXCSeoB5o19wAQDkejH4s4mxsC1BG1aA4",
+  "_hash": "jlbdOCgy6c3iDWWH1Jtnt1yQ2B8UqDJn32lygaGcanY",
   "project": {
-    "rootDir": "/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch"
+    "rootDir": "/Users/marco/Claude/wellbeintouch-project/wellbeintouch"
   },
   "versions": {
     "nuxt": "4.3.1"

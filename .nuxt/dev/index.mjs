@@ -1,42 +1,42 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/@vue/shared/dist/shared.cjs.js';
+import { escapeHtml } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/@vue/shared/dist/shared.cjs.js';
 import { createClient } from '@supabase/supabase-js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/ufo/dist/index.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/radix3/dist/index.mjs';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/ufo/dist/index.mjs';
+import destr, { destr as destr$1 } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/destr/dist/index.mjs';
+import { createHooks } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/unstorage/drivers/fs.mjs';
+import { digest } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/errx/dist/index.js';
-import { isVNode, isRef, toValue } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/vue/index.mjs';
+import { stringify, uneval } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/errx/dist/index.js';
+import { isVNode, isRef, toValue } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/vue/index.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/pathe/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/unhead/dist/server.mjs';
-import { renderToString } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/vue/server-renderer/index.mjs';
-import { walkResolver } from 'file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/pathe/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/unhead/dist/server.mjs';
+import { renderToString } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/vue/server-renderer/index.mjs';
+import { walkResolver } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/unhead/dist/utils.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/marco/Claude/wellbeintouch-project/wellbeintouch/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -48,11 +48,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/marco/Claude/wellbeintouch-project/wellbeintouch","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/marco/Claude/wellbeintouch-project/wellbeintouch/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/marco/Claude/wellbeintouch-project/wellbeintouch/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/marco/Claude/wellbeintouch-project/wellbeintouch/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/marco/Claude/wellbeintouch-project/wellbeintouch/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -2039,13 +2039,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _T1tuNnkft5wTpEHQejUzAkTpFtXEoS6epoCN6nHmW1M = (function(nitro) {
+const _2nOUfhV8YXALZXbBr1txSRHKxO47TL3QhWoGbYbyKY = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/Users/marco/Library/Application Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch";
+const rootDir = "/Users/marco/Claude/wellbeintouch-project/wellbeintouch";
 
 const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"A public record of hiring processes — scored on what actually matters. How long it takes. How much of your time it costs. Whether they ever reply."},{"property":"og:title","content":"We'll Be In Touch — Hiring Transparency Index"},{"property":"og:description","content":"A public record of companies that ghost candidates. Scored on how long they take, how much of your time they cost, and whether they ever reply."},{"property":"og:type","content":"website"},{"property":"og:url","content":"https://wellbeintouch.fyi"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"We'll Be In Touch — Hiring Transparency Index","htmlAttrs":{"lang":"en"}};
 
@@ -2074,7 +2074,7 @@ const asyncContext = getContext("nuxt-dev", {
 	asyncContext: true,
 	AsyncLocalStorage
 });
-const _VBnbtcJfgQ9YIbz9xne30UpajKnu6Y4cQzCgA1EhA7w = (nitroApp) => {
+const _GkLnQM9AQqEa59v6VD85elcJi7E_iQkATWEsRNJsSVo = (nitroApp) => {
 	const handler = nitroApp.h3App.handler;
 	nitroApp.h3App.handler = (event) => {
 		return asyncContext.callAsync({
@@ -2148,8 +2148,8 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _T1tuNnkft5wTpEHQejUzAkTpFtXEoS6epoCN6nHmW1M,
-_VBnbtcJfgQ9YIbz9xne30UpajKnu6Y4cQzCgA1EhA7w
+  _2nOUfhV8YXALZXbBr1txSRHKxO47TL3QhWoGbYbyKY,
+_GkLnQM9AQqEa59v6VD85elcJi7E_iQkATWEsRNJsSVo
 ];
 
 const assets = {};
@@ -2177,7 +2177,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _9w8OMd = eventHandler((event) => {
+const _vNGrls = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -2317,9 +2317,9 @@ function publicAssetsURL(...path) {
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
 // @ts-expect-error file will be produced after app build
-const getServerEntry = () => import('file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getServerEntry = () => import('file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
 // @ts-expect-error file will be produced after app build
-const getClientManifest = () => import('file:///Users/marco/Library/Application%20Support/Claude/local-agent-mode-sessions/50481c9c-070a-4490-90d6-5078db1c88e2/4b5e3e82-5f33-4345-ae1a-ac937a9fcb26/local_645a9d65-f3b8-4e81-8c02-22f84f1f81ad/outputs/wellbeintouch/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getClientManifest = () => import('file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 // -- SSR Renderer --
 const getSSRRenderer = lazyCachedFunction(async () => {
 	// Load server bundle
@@ -2600,15 +2600,15 @@ async function getIslandContext(event) {
 	return ctx;
 }
 
-const _lazy_GLXzKi = () => Promise.resolve().then(function () { return reports_post$1; });
-const _lazy_7IesIP = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_Y4Ic3j = () => Promise.resolve().then(function () { return reports_post$1; });
+const _lazy_YqwVyp = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '', handler: _9w8OMd, lazy: false, middleware: true, method: undefined },
-  { route: '/api/reports', handler: _lazy_GLXzKi, lazy: true, middleware: false, method: "post" },
-  { route: '/__nuxt_error', handler: _lazy_7IesIP, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _vNGrls, lazy: false, middleware: true, method: undefined },
+  { route: '/api/reports', handler: _lazy_Y4Ic3j, lazy: true, middleware: false, method: "post" },
+  { route: '/__nuxt_error', handler: _lazy_YqwVyp, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_7IesIP, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_YqwVyp, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
