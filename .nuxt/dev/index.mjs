@@ -5,7 +5,6 @@ import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
 import { escapeHtml } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/@vue/shared/dist/shared.cjs.js';
-import { createClient } from '@supabase/supabase-js';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/ufo/dist/index.mjs';
 import destr, { destr as destr$1 } from 'file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/destr/dist/index.mjs';
@@ -653,14 +652,7 @@ const _inlineRuntimeConfig = {
       "dataset": "production",
       "apiVersion": "2025-03-01",
       "useCdn": true
-    },
-    "supabase": {
-      "url": "",
-      "anonKey": ""
     }
-  },
-  "supabase": {
-    "serviceRoleKey": ""
   }
 };
 const envOptions = {
@@ -2600,12 +2592,10 @@ async function getIslandContext(event) {
 	return ctx;
 }
 
-const _lazy_Y4Ic3j = () => Promise.resolve().then(function () { return reports_post$1; });
 const _lazy_YqwVyp = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '', handler: _vNGrls, lazy: false, middleware: true, method: undefined },
-  { route: '/api/reports', handler: _lazy_Y4Ic3j, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_YqwVyp, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_YqwVyp, lazy: true, middleware: false, method: undefined }
@@ -2946,76 +2936,6 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
-}, Symbol.toStringTag, { value: 'Module' }));
-
-let _client = null;
-function useSupabaseServer() {
-  if (_client) return _client;
-  const config = useRuntimeConfig();
-  const url = config.public.supabase.url;
-  const serviceRoleKey = config.supabase.serviceRoleKey;
-  if (!url || !serviceRoleKey) {
-    throw new Error("Missing Supabase server config (URL or service role key)");
-  }
-  _client = createClient(url, serviceRoleKey);
-  return _client;
-}
-
-const VALID_ROLE_TYPES = ["employee", "freelancer", "contractor"];
-const VALID_STAGES = ["application", "first_interview", "later_interview", "unpaid_work", "final", "post_offer"];
-const VALID_DURATIONS = ["under_1w", "1_2w", "2_4w", "1_3m", "over_3m"];
-function generateRefCode() {
-  return "WBIT-" + String(Math.floor(Math.random() * 9e5) + 1e5);
-}
-const reports_post = defineEventHandler(async (event) => {
-  const body = await readBody(event);
-  const { company, role, roleType, stage, duration, notes } = body || {};
-  if (!(company == null ? void 0 : company.trim())) throw createError({ statusCode: 400, message: "Company name is required" });
-  if (!(role == null ? void 0 : role.trim())) throw createError({ statusCode: 400, message: "Role is required" });
-  if (!VALID_ROLE_TYPES.includes(roleType)) throw createError({ statusCode: 400, message: "Invalid role type" });
-  if (!VALID_STAGES.includes(stage)) throw createError({ statusCode: 400, message: "Invalid stage" });
-  if (!VALID_DURATIONS.includes(duration)) throw createError({ statusCode: 400, message: "Invalid duration" });
-  const supabase = useSupabaseServer();
-  const refCode = generateRefCode();
-  const { error: reportError } = await supabase.from("reports").insert({
-    company_name: company.trim(),
-    role: role.trim(),
-    role_type: roleType,
-    stage,
-    duration,
-    notes: (notes == null ? void 0 : notes.trim()) || null,
-    ref_code: refCode
-  });
-  if (reportError) {
-    if (reportError.code === "23505" && reportError.message.includes("ref_code")) {
-      const retryCode = generateRefCode();
-      const { error: retryError } = await supabase.from("reports").insert({
-        company_name: company.trim(),
-        role: role.trim(),
-        role_type: roleType,
-        stage,
-        duration,
-        notes: (notes == null ? void 0 : notes.trim()) || null,
-        ref_code: retryCode
-      });
-      if (retryError) {
-        throw createError({ statusCode: 500, message: "Failed to save report" });
-      }
-      await upsertCompany(supabase, company.trim());
-      return { success: true, refCode: retryCode };
-    }
-    throw createError({ statusCode: 500, message: "Failed to save report" });
-  }
-  await upsertCompany(supabase, company.trim());
-  return { success: true, refCode };
-});
-async function upsertCompany(supabase, name) {
-  await supabase.from("companies").upsert({ name }, { onConflict: "name", ignoreDuplicates: true });
-}
-
-const reports_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  default: reports_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

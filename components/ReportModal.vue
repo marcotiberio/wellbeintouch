@@ -3,8 +3,6 @@ const { isOpen, close } = useReportModal()
 
 const showSuccess = ref(false)
 const refCode = ref('')
-const isSubmitting = ref(false)
-const submitError = ref('')
 
 // Form state
 const company = ref('')
@@ -46,9 +44,6 @@ const durationOptions = [
   { value: 'over_3m', label: '3+ months' },
 ]
 
-// Get refresh function from company data composable
-const { refresh: refreshCompanyData } = useCompanyData()
-
 function validate(): boolean {
   errors.company = !company.value.trim()
   errors.role = !role.value.trim()
@@ -58,36 +53,10 @@ function validate(): boolean {
   return !errors.company && !errors.role && !errors.roleType && !errors.stage && !errors.duration
 }
 
-async function submit() {
+function submit() {
   if (!validate()) return
-  if (isSubmitting.value) return
-
-  isSubmitting.value = true
-  submitError.value = ''
-
-  try {
-    const result = await $fetch('/api/reports', {
-      method: 'POST',
-      body: {
-        company: company.value.trim(),
-        role: role.value.trim(),
-        roleType: roleType.value,
-        stage: stage.value,
-        duration: duration.value,
-        notes: notes.value.trim() || null,
-      },
-    })
-
-    refCode.value = result.refCode
-    showSuccess.value = true
-
-    // Refresh the company index table
-    refreshCompanyData()
-  } catch (e: any) {
-    submitError.value = e?.data?.message || e?.message || 'Something went wrong. Please try again.'
-  } finally {
-    isSubmitting.value = false
-  }
+  refCode.value = 'WBIT-' + String(Math.floor(Math.random() * 900000) + 100000)
+  showSuccess.value = true
 }
 
 function resetForm() {
@@ -103,7 +72,6 @@ function resetForm() {
   errors.stage = false
   errors.duration = false
   showSuccess.value = false
-  submitError.value = ''
 }
 
 function handleClose() {
@@ -236,20 +204,13 @@ onMounted(() => {
                 />
               </div>
             </div>
-
-            <!-- Error message -->
-            <div v-if="submitError" class="submit-error">
-              {{ submitError }}
-            </div>
           </div>
 
           <div class="form-footer">
             <div class="form-footer-note">
               Anonymous — no account required.<br />All submissions are public record.
             </div>
-            <button type="submit" class="btn-primary" :disabled="isSubmitting">
-              {{ isSubmitting ? 'Submitting…' : 'Submit report' }}
-            </button>
+            <button type="submit" class="btn-primary">Submit report</button>
           </div>
         </form>
 
@@ -363,17 +324,6 @@ onMounted(() => {
 .field { display: flex; flex-direction: column; gap: 5px; }
 .divider { border: none; border-top: 1px solid var(--faint); margin: 22px 0 20px; }
 
-.submit-error {
-  margin-top: 12px;
-  padding: 10px 14px;
-  background: rgba(180, 40, 40, 0.06);
-  border: 1px solid rgba(180, 40, 40, 0.15);
-  border-radius: var(--radius);
-  font-size: 0.82rem;
-  color: #a03030;
-  font-family: var(--sans);
-}
-
 .form-footer {
   padding: 18px 28px;
   border-top: 1px solid var(--faint);
@@ -445,11 +395,6 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   gap: 8px;
-}
-
-.btn-primary:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {

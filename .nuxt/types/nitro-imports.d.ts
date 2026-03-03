@@ -125,7 +125,6 @@ declare global {
   const useRuntimeConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
   const useSession: typeof import('../../node_modules/h3').useSession
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
-  const useSupabaseServer: typeof import('../../server/utils/supabase').useSupabaseServer
   const writeEarlyHints: typeof import('../../node_modules/h3').writeEarlyHints
 }
 // for type re-export
@@ -148,4 +147,3 @@ export { defineTask, runTask } from 'nitropack/runtime/internal/task';
 export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
 export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from '/Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/@nuxt/nitro-server/dist/runtime/utils/paths';
 export { defineAppConfig } from '/Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';
-export { useSupabaseServer } from '/Users/marco/Claude/wellbeintouch-project/wellbeintouch/server/utils/supabase';

@@ -8,19 +8,12 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
-    supabase: {
-      serviceRoleKey: '', // set via NUXT_SUPABASE_SERVICE_ROLE_KEY
-    },
     public: {
       sanity: {
         projectId: '4ygt7ebp',
         dataset: 'production',
         apiVersion: '2025-03-01',
         useCdn: true,
-      },
-      supabase: {
-        url: '',     // set via NUXT_PUBLIC_SUPABASE_URL
-        anonKey: '', // set via NUXT_PUBLIC_SUPABASE_ANON_KEY
       },
     },
   },
