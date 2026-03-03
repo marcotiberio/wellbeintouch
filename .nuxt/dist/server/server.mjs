@@ -1,1 +1,0 @@
-export { default } from "file:///Users/marco/Claude/wellbeintouch-project/wellbeintouch/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"
