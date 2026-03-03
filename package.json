@@ -2,6 +2,7 @@
   "name": "wellbeintouch",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "We'll Be In Touch — Hiring Transparency Index",
   "scripts": {
     "dev": "nuxt dev",

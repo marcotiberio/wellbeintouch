@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
-import { computeScore, mode, STAGE_LABELS, DURATION_LABELS, type ReportRow } from '~/utils/scoring'
-import { SEED_COMPANIES, INDUSTRY_MAP } from '~/utils/seedData'
+import { computeScore, mode, STAGE_LABELS, DURATION_LABELS } from '~/lib/scoring'
+import type { ReportRow } from '~/lib/scoring'
+import { SEED_COMPANIES, INDUSTRY_MAP } from '~/lib/seedData'
 
 export type RoleType = 'employee' | 'freelancer' | 'contractor'
 
@@ -33,7 +34,6 @@ export function scoreClass(score: number): 'good' | 'warn' | 'bad' {
 
 /** Build Company[] from raw report rows + company metadata */
 function buildCompanies(reports: ReportRow[], industryLookup: Record<string, string>): Company[] {
-  // Group reports by company
   const grouped = new Map<string, ReportRow[]>()
   for (const r of reports) {
     const key = r.company_name
@@ -63,12 +63,45 @@ function buildCompanies(reports: ReportRow[], industryLookup: Record<string, str
   return result
 }
 
+/** Fetch companies from Supabase */
+async function fetchFromSupabase(url: string, key: string): Promise<Company[] | null> {
+  try {
+    const client = createClient(url, key)
+
+    const [reportsRes, companiesRes] = await Promise.all([
+      client.from('reports').select('*').order('created_at', { ascending: false }),
+      client.from('companies').select('*'),
+    ])
+
+    if (reportsRes.error) throw reportsRes.error
+
+    const reports: ReportRow[] = reportsRes.data ?? []
+
+    const industryLookup: Record<string, string> = { ...INDUSTRY_MAP }
+    if (companiesRes.data) {
+      for (const c of companiesRes.data) {
+        if (c.industry && c.industry !== 'Other') {
+          industryLookup[c.name] = c.industry
+        }
+      }
+    }
+
+    if (reports.length > 0) {
+      return buildCompanies(reports, industryLookup)
+    }
+    return null // no reports yet
+  } catch (e) {
+    console.warn('[WBIT] Supabase fetch failed:', e)
+    return null
+  }
+}
+
 export function useCompanyData() {
   const PAGE_SIZE = 10
   const sortKey = ref<SortKey>('score')
   const visibleCount = ref(PAGE_SIZE)
 
-  // Reactive data source — starts with seed data, replaced by Supabase data if available
+  // Shared state across all components — seed data as default
   const companies = useState<Company[]>('wbit-companies', () => SEED_COMPANIES)
 
   // Check if Supabase is configured
@@ -77,50 +110,13 @@ export function useCompanyData() {
   const supabaseKey = config.public.supabase?.anonKey as string | undefined
   const hasSupabase = Boolean(supabaseUrl && supabaseKey)
 
-  // Fetch live data from Supabase
-  const fetchLive = async (): Promise<Company[]> => {
-    if (!hasSupabase) return SEED_COMPANIES
-
-    try {
-      const client = createClient(supabaseUrl!, supabaseKey!)
-
-      // Fetch all reports and company metadata in parallel
-      const [reportsRes, companiesRes] = await Promise.all([
-        client.from('reports').select('*').order('created_at', { ascending: false }),
-        client.from('companies').select('*'),
-      ])
-
-      if (reportsRes.error) throw reportsRes.error
-
-      const reports: ReportRow[] = reportsRes.data ?? []
-
-      // Build industry lookup from companies table + seed data
-      const industryLookup: Record<string, string> = { ...INDUSTRY_MAP }
-      if (companiesRes.data) {
-        for (const c of companiesRes.data) {
-          if (c.industry && c.industry !== 'Other') {
-            industryLookup[c.name] = c.industry
-          }
-        }
-      }
-
-      if (reports.length > 0) {
-        return buildCompanies(reports, industryLookup)
-      }
-      // If no reports yet, keep seed data as placeholder
-      return SEED_COMPANIES
-    } catch (e) {
-      console.warn('[WBIT] Supabase fetch failed, using seed data:', e)
-      return SEED_COMPANIES
-    }
+  // Fetch live data on client side only (seed data is used for SSR)
+  if (import.meta.client && hasSupabase) {
+    onNuxtReady(async () => {
+      const data = await fetchFromSupabase(supabaseUrl!, supabaseKey!)
+      if (data) companies.value = data
+    })
   }
-
-  // SSR-compatible fetch — returns data, updates state
-  const { refresh: refetchData } = useAsyncData('company-data', async () => {
-    const data = await fetchLive()
-    companies.value = data
-    return data
-  })
 
   const sorted = computed(() => {
     const list = [...companies.value]
@@ -154,9 +150,11 @@ export function useCompanyData() {
     visibleCount.value += PAGE_SIZE
   }
 
-  /** Call after a new report is submitted to refresh the data */
-  function refresh() {
-    refetchData()
+  /** Call after a new report is submitted to refresh the table */
+  async function refresh() {
+    if (!hasSupabase) return
+    const data = await fetchFromSupabase(supabaseUrl!, supabaseKey!)
+    if (data) companies.value = data
   }
 
   return {

@@ -71,18 +71,18 @@ export function usePageContent() {
 
   const sanityData = useState<Record<string, any> | null>('page-content', () => null)
 
-  // Fetch once (SSR-friendly via useAsyncData)
-  useAsyncData('sanity-home', async () => {
-    try {
-      const client = createClient({ projectId, dataset, apiVersion, useCdn })
-      const data = await client.fetch(QUERY)
-      sanityData.value = data
-      return data
-    } catch {
-      // Silently fall back — site works without Sanity
-      return null
-    }
-  })
+  // Fetch CMS content on client side (fallback used for SSR)
+  if (import.meta.client && projectId) {
+    onNuxtReady(async () => {
+      try {
+        const client = createClient({ projectId, dataset, apiVersion, useCdn })
+        const data = await client.fetch(QUERY)
+        if (data) sanityData.value = data
+      } catch (e) {
+        console.warn('[WBIT] Sanity fetch failed, using fallback content:', e)
+      }
+    })
+  }
 
   const content = computed(() => {
     const s = sanityData.value
