@@ -94,7 +94,7 @@ export default defineType({
       name: 'indexTitle',
       title: 'Index Section Title',
       type: 'string',
-      description: 'e.g. "Who ghosts, and when"',
+      description: 'e.g. "Who ghosts, and when (mock data)"',
     }),
 
     // ── Bottom CTA ──

@@ -22,7 +22,7 @@ const FALLBACK = {
     text: 'Your time has value. The average hiring process runs 44 days — longer for senior roles. 61% of candidates are ghosted before it\'s over. This platform scores companies on four parameters so you can decide whether applying is worth it before you find out the hard way.',
   },
   indexSubtitle: 'Ghosting index',
-  indexTitle: 'Who ghosts, and when',
+  indexTitle: 'Who ghosts, and when (mock data)',
   bottomCtaText: 'Every report you file contributes to a company\'s permanent public score. The more data, the clearer the picture becomes — for everyone who comes after you. It takes two minutes and requires no account.',
   bottomCtaButton: 'File a report',
   supportTitle: 'If the silence is getting to you',
