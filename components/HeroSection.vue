@@ -1,7 +1,6 @@
 <script setup lang="ts">
 defineProps<{
   content?: {
-    heroEyebrow?: string
     heroHeadline?: string
     heroSubtext?: string
     heroCtaLabel?: string
@@ -15,12 +14,11 @@ const { open } = useReportModal()
 <template>
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-eyebrow fade-in fade-in-1">{{ content?.heroEyebrow }}</div>
-      <h1 class="fade-in fade-in-2">
+      <h1 class="fade-in fade-in-1">
         <em>They said</em><br>
         we'll be in touch (lol)
       </h1>
-      <div class="hero-body fade-in fade-in-3">
+      <div class="hero-body fade-in fade-in-2">
         <div>
           <p class="hero-text">{{ content?.heroSubtext }}</p>
           <div class="hero-cta">
@@ -57,24 +55,6 @@ const { open } = useReportModal()
   pointer-events: none;
 }
 .hero-inner { max-width: 1440px; margin: 0 auto; }
-.hero-eyebrow {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--green);
-  margin-bottom: 28px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 24px; height: 1px;
-  background: var(--green);
-  opacity: 0.5;
-  flex-shrink: 0;
-}
 h1 {
   font-family: var(--serif);
   font-size: clamp(3rem, 6.5vw, 5.8rem);
