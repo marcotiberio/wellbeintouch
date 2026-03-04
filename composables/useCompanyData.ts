@@ -13,7 +13,18 @@ export function scoreClass(score: number): 'good' | 'warn' | 'bad' {
   return score >= 50 ? 'bad' : score >= 20 ? 'warn' : 'good'
 }
 
-export const LABELS: Record<string, string> = { good: 'Mild', warn: 'Moderate', bad: 'Severe' }
+export function ghostCount(score: number): number {
+  return Math.max(1, Math.min(5, Math.ceil(score / 20)))
+}
+
+export function ghostLabel(score: number): string {
+  const labels = ['Barely ghosted', 'Left on read', 'Gone cold', 'Full phantom', 'Corporate Houdini']
+  return labels[ghostCount(score) - 1]
+}
+
+export function ghostEmojis(score: number): string {
+  return '👻'.repeat(ghostCount(score))
+}
 
 // Real reports — scoring model:
 // Stage weights: application=15, 1st interview=30, further rounds=50, case study=70, final round=80, post-offer=95

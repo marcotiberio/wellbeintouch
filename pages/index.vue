@@ -26,10 +26,10 @@ const { content } = usePageContent()
 main {
   max-width: 1680px;
   margin: 0 auto;
-  padding: 96px 48px 88px;
+  padding: 4rem 3rem;
 }
 
 @media (max-width: 768px) {
-  main { padding: 0 20px 64px; }
+  main { padding: 4rem 1.25rem; }
 }
 </style>

@@ -34,7 +34,7 @@ defineProps<{
 <style scoped>
 .support-section {
   margin-top: 48px;
-  padding: 40px;
+  padding: 2.5rem;
   background: var(--paper);
   border: 1px solid var(--faint);
   border-radius: var(--radius);
@@ -74,7 +74,7 @@ defineProps<{
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 14px 18px;
+  padding: 0.875rem 1.125rem;
   background: var(--bg);
   border: 1px solid var(--faint);
   border-radius: var(--radius);

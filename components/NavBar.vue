@@ -5,7 +5,7 @@ const { open } = useReportModal()
 <template>
   <nav class="fade-in">
     <div class="nav-inner">
-      <div class="nav-logo uppercase">👻</div>
+      <div class="nav-logo uppercase leading-none">👻</div>
       <div class="nav-right">
         <button class="nav-cta" @click="open">File a report</button>
       </div>
@@ -21,13 +21,13 @@ nav {
 .nav-inner {
   max-width: 1680px;
   margin: 0 auto;
-  padding: 20px 48px;
+  padding: 1.25rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .nav-logo {
-  font-size: 1.05rem;
+  font-size: 2rem;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
@@ -40,7 +40,7 @@ nav {
   background: var(--green);
   color: #fff;
   border: none;
-  padding: 10px 22px;
+  padding: 0.625rem 1.375rem;
   font-family: var(--sans);
   font-size: 0.82rem;
   font-weight: 500;
@@ -53,6 +53,7 @@ nav {
 .nav-cta:active { transform: translateY(1px); }
 
 @media (max-width: 768px) {
-  nav { padding: 16px 20px; }
+  nav { padding: 1rem 1.25rem; }
+ .nav-inner { padding: 0; }
 }
 </style>

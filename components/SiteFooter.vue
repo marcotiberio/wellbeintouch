@@ -17,7 +17,7 @@ defineProps<{
 <style scoped>
 .site-footer {
   background: var(--paper);
-  padding: 24px 48px;
+  padding: 1.5rem 3rem;
   border-top: 1px solid var(--faint);
   font-family: var(--mono);
   font-size: 0.6rem;
@@ -42,6 +42,6 @@ footer em {
 }
 
 @media (max-width: 768px) {
-  footer { padding: 16px 20px; }
+  footer { padding: 1rem 1.25rem; }
 }
 </style>

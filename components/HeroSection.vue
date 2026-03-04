@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { open } = useReportModal()
 defineProps<{
   content?: {
     heroHeadline?: string
@@ -7,7 +8,6 @@ defineProps<{
     heroCtaNote?: string
   }
 }>()
-const { open } = useReportModal()
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const { open } = useReportModal()
 .hero {
   background: var(--paper);
   margin: 0 auto;
-  padding: 96px 48px 88px;
+  padding: 6rem 3rem 5.5rem;
   border-bottom: 1px solid var(--faint);
   overflow: hidden;
   position: relative;
@@ -51,7 +51,6 @@ const { open } = useReportModal()
 .hero-inner { 
   max-width: 1680px;
   margin: 0 auto;
-  padding: 96px 48px 88px;
 }
 h1 {
   font-family: var(--serif);
@@ -97,7 +96,7 @@ h1 em {
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 60px 20px 52px; }
+  .hero { padding: 3.75rem 1.25rem 3.25rem; }
   .hero-body { grid-template-columns: 1fr; gap: 36px; }
   h1 { font-size: 3rem; }
 }

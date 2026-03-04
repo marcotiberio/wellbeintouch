@@ -31,6 +31,9 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://wellbeintouch.fyi' },
       ],
+      script: [
+        { src: 'https://tally.so/widgets/embed.js', async: true },
+      ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       ],
