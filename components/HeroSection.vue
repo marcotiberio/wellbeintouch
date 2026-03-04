@@ -34,7 +34,6 @@ defineProps<{
 .hero {
   background: var(--paper);
   margin: 0 auto;
-  padding: 6rem 3rem 5.5rem;
   border-bottom: 1px solid var(--faint);
   overflow: hidden;
   position: relative;
@@ -51,6 +50,7 @@ defineProps<{
 .hero-inner { 
   max-width: 1680px;
   margin: 0 auto;
+  padding: 6rem 3rem;
 }
 h1 {
   font-family: var(--serif);
@@ -96,8 +96,8 @@ h1 em {
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 3.75rem 1.25rem 3.25rem; }
   .hero-body { grid-template-columns: 1fr; gap: 36px; }
+  .hero-inner { padding: 4rem 1.25rem; }
   h1 { font-size: 3rem; }
 }
 </style>
