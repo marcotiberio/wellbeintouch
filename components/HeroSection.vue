@@ -20,7 +20,7 @@ defineProps<{
       <div class="hero-body fade-in fade-in-2">
         <div>
           <p class="hero-text">{{ content?.heroSubtext }}</p>
-          <div class="hero-cta">
+          <div class="hero-cta mt-[36px] flex flex-col md:flex-row items-start md:items-end gap-6 md:gap-[30px]">
             <button class="btn-primary" @click="open">{{ content?.heroCtaLabel }}</button>
             <span class="btn-note" v-html="content?.heroCtaNote?.replace(/\\n/g, '<br />')" />
           </div>
@@ -80,12 +80,6 @@ h1 em {
   max-width: 420px;
 }
 .hero-text strong { color: var(--ink); font-weight: 500; }
-.hero-cta {
-  margin-top: 36px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
 .btn-note {
   font-family: var(--mono);
   font-size: 0.62rem;
