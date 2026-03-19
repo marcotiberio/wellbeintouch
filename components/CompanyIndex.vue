@@ -42,7 +42,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
       <div class="table-head">
         <div class="th">Company</div>
         <div class="th">Ghosted at</div>
-        <div class="th">Duration</div>
+        <div class="th">Felt ghosted after</div>
         <div class="th">Ghost rating</div>
         <div class="th right">Score</div>
       </div>
@@ -63,13 +63,13 @@ const sortOptions: { key: SortKey; label: string }[] = [
     </div>
 
     <!-- Load More -->
-    <div v-if="remaining > 0" class="load-more-row">
+    <div v-if="remaining > 10" class="load-more-row">
       <span class="load-more-note">Showing {{ Math.min(visibleCount, total) }} of {{ total }}</span>
       <button class="btn-load" @click="loadMore">Load more</button>
     </div>
 
     <!-- Scoring Explainer -->
-    <div class="explainer">
+    <div class="explainer mt-6">
       <button class="explainer-toggle" @click="explainerOpen = !explainerOpen">
         <span class="explainer-label">How we score</span>
         <span class="explainer-arrow" :class="{ open: explainerOpen }">&#x25BE;</span>
@@ -127,9 +127,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 16px;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--faint);
+  padding-bottom: 1.5rem;
 }
 .index-title-wrap { display: flex; align-items: baseline; gap: 14px; }
 .index-subtitle {
@@ -173,7 +171,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 }
 .table-head {
   display: grid;
-  grid-template-columns: 2fr 1.2fr 1fr 0.8fr 0.8fr;
+  grid-template-columns: 2fr 1.5fr 1.5fr 0.6fr 0.6fr;
   padding: 0.625rem 1.25rem;
   background: var(--bg);
   border-bottom: 1px solid var(--faint);
@@ -189,7 +187,7 @@ const sortOptions: { key: SortKey; label: string }[] = [
 
 .co-row {
   display: grid;
-  grid-template-columns: 2fr 1.2fr 1fr 0.8fr 0.8fr;
+  grid-template-columns: 2fr 1.5fr 1.5fr 0.6fr 0.6fr;
   padding: 0.875rem 1.25rem;
   border-bottom: 1px solid var(--faint);
   align-items: center;
@@ -363,9 +361,9 @@ const sortOptions: { key: SortKey; label: string }[] = [
 }
 
 @media (max-width: 768px) {
-  .table-head { grid-template-columns: 3fr 1fr 1fr; }
+  .table-head { grid-template-columns: 2.8fr 1.2fr 1fr; }
   .table-head .th:nth-child(2), .table-head .th:nth-child(3) { display: none; }
-  .co-row { grid-template-columns: 3fr 1fr 1fr; }
+  .co-row { grid-template-columns: 2.8fr 1.2fr 1fr; }
   .cell-stage, .cell-duration { display: none; }
   .index-head { flex-direction: column; align-items: flex-start; }
   .explainer-grid { grid-template-columns: 1fr; }

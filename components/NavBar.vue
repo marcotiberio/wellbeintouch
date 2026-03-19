@@ -16,7 +16,6 @@ const { open } = useReportModal()
 <style scoped>
 nav {
   border-bottom: 1px solid var(--faint);
-  background: var(--paper);
 }
 .nav-inner {
   max-width: 1680px;
@@ -30,6 +29,13 @@ nav {
   font-size: 2rem;
   color: var(--ink);
   letter-spacing: -0.01em;
+  display: inline-block;
+  transition: transform 0.6s ease;
+  cursor: default;
+}
+.nav-logo:hover {
+  transform: rotate(360deg);
+  transform-origin: center;
 }
 .nav-right {
   display: flex;

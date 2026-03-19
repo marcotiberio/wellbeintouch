@@ -34,6 +34,7 @@ export function ghostEmojis(score: number): string {
 const COMPANIES: Company[] = [
   { name: 'Hunkemöller',        industry: 'Retail',       score: 11, reports: 1, stage: 'After application',    duration: '< 1 week' },
   { name: 'Adidas',             industry: 'Retail',       score: 14, reports: 1, stage: 'After application',    duration: '1–2 weeks' },
+  { name: 'Craft',              industry: 'Recruiting Agency', score: 14, reports: 1, stage: 'After application', duration: '1–2 weeks' },
   { name: 'ING',                industry: 'Finance',      score: 14, reports: 1, stage: 'After application',    duration: '1–2 weeks' },
   { name: 'Ace & Tate',         industry: 'Retail',       score: 18, reports: 1, stage: 'After application',    duration: '1–2 months' },
   { name: 'Buck',               industry: 'Design Agency',score: 18, reports: 1, stage: 'After application',    duration: '1–2 months' },
@@ -42,11 +43,12 @@ const COMPANIES: Company[] = [
   { name: 'AKQA',               industry: 'Design Agency',score: 23, reports: 1, stage: 'After application',    duration: '2+ months' },
   { name: 'Gladia',             industry: 'Tech',         score: 23, reports: 1, stage: 'After application',    duration: '2+ months' },
   { name: 'Provoke Labs',       industry: 'Design Agency',score: 23, reports: 1, stage: 'After application',    duration: '2+ months' },
+  { name: 'MODIFI',              industry: 'Fintech',      score: 36, reports: 1, stage: 'After 1st interview',  duration: '3–4 weeks' },
   { name: 'The July',           industry: 'Design Agency',score: 56, reports: 2, stage: 'After case study',     duration: '1–2 months' },
 ]
 
 export function useCompanyData() {
-  const PAGE_SIZE = 10
+  const PAGE_SIZE = 50
   const sortKey = ref<SortKey>('score')
   const visibleCount = ref(PAGE_SIZE)
 
