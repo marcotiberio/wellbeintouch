@@ -35,6 +35,7 @@ const COMPANIES: Company[] = [
   { name: 'Hunkemöller',        industry: 'Retail',       score: 11, reports: 1, stage: 'After application',    duration: '< 1 week' },
   { name: 'Adidas',             industry: 'Retail',       score: 14, reports: 1, stage: 'After application',    duration: '1–2 weeks' },
   { name: 'Craft',              industry: 'Recruiting Agency', score: 14, reports: 1, stage: 'After application', duration: '1–2 weeks' },
+  { name: 'Gisou',              industry: 'Beauty',       score: 14, reports: 1, stage: 'After application',    duration: '1–2 weeks' },
   { name: 'ING',                industry: 'Finance',      score: 14, reports: 1, stage: 'After application',    duration: '1–2 weeks' },
   { name: 'Ace & Tate',         industry: 'Retail',       score: 18, reports: 1, stage: 'After application',    duration: '1–2 months' },
   { name: 'Buck',               industry: 'Design Agency',score: 18, reports: 1, stage: 'After application',    duration: '1–2 months' },
